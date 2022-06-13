@@ -120,7 +120,7 @@ describe('Central de Atendimento ao Cliente TAT ',function(){
         //tem um atributo , chamado target, que tem valor _blank
         cy.get('#privacy a').should('have.attr' , 'target' , '_blank')
     })
-    it.only('acessa página e remove o target' , function(){
+    it('acessa página e remove o target' , function(){
         // esse invoke removeAttr retira o target e faz com que seja aberto na mesma página no click
         //já que o cypress não consegue monitorar duas abas juntos
         //tu remove o target e faz com que tudo seja renderizado na mesma página
