@@ -21,7 +21,6 @@ describe('Central de Atendimento ao Cliente TAT ',function(){
         cy.get('#open-text-area').type('teste')
         cy.get('button[type="submit"]').click()
         cy.get('.success').should('be.visible')
-
     })
 
     it('preencher os campos obrigatórios e envia o formulário passa area errada', function(){
