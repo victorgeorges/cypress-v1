@@ -112,10 +112,23 @@ describe('Central de Atendimento ao Cliente TAT ',function(){
          }) 
     })
     //quando usar alias, tu chama ele com @
-    it.only('selecionar arquivo usando fixture', function(){
+    it('selecionar arquivo usando fixture', function(){
         cy.fixture('example.json').as('sampleFile')
         cy.get('#file-upload').selectFile('@sampleFile')
     })
-
+    it('verifica páginas que abrem em outra aba' , function(){
+        //tem um atributo , chamado target, que tem valor _blank
+        cy.get('#privacy a').should('have.attr' , 'target' , '_blank')
+    })
+    it.only('acessa página e remove o target' , function(){
+        // esse invoke removeAttr retira o target e faz com que seja aberto na mesma página no click
+        //já que o cypress não consegue monitorar duas abas juntos
+        //tu remove o target e faz com que tudo seja renderizado na mesma página
+        cy.get('#privacy a').should('have.attr' , 'target' , '_blank')
+        .invoke('removeAttr' , 'target' )
+        .click()
+        //esse comando aqui em baixo, verifica se contem aquela parte e dps sugere que esteja visível.
+        cy.contains('CAC TAT - Política de privacidade').should('be.visible')
+    })
 })
 
