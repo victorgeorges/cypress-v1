@@ -12,7 +12,7 @@ describe('Central de Atendimento ao Cliente TAT ',function(){
     })
 
     
-    it.only('preencher os campos obrigatórios e acerta o email', function() {
+    it('preencher os campos obrigatórios e acerta o email', function() {
         //..clock() congela o relógio do navegador
         cy.clock()
 
@@ -27,8 +27,8 @@ describe('Central de Atendimento ao Cliente TAT ',function(){
         cy.tick(THREE_SEC)
 
         cy.get('.success').should('not.be.visible')
-
     })
+
 })
 
 
